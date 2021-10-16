@@ -17,9 +17,10 @@ tweetForm.addEventListener('submit', (event) => {
 
 const addTweet = (username, tweet) => {
   const newTweet = document.createElement('li');
-  const bTag = document.createElement('b');
-  bTag.append(username);
-  newTweet.append(bTag);
-  newTweet.append(`-${tweet}`);
+  newTweet.append(`${username}- ${tweet}`);
   tweetsContainer.append(newTweet);
 };
+
+tweetsContainer.addEventListener('click', (event) => {
+  event.target.nodeName === 'LI' && event.target.remove();
+});
